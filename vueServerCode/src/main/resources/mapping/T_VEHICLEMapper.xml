@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vueServer.code.dao.T_VEHICLEMapper">
+  <resultMap id="BaseResultMap" type="com.vueServer.code.pojo.T_VEHICLE">
+    <id column="hphm" jdbcType="VARCHAR" property="hphm" />
+    <id column="hpzl" jdbcType="VARCHAR" property="hpzl" />
+    <result column="syr" jdbcType="VARCHAR" property="syr" />
+    <result column="sfzmhm" jdbcType="VARCHAR" property="sfzmhm" />
+    <result column="clsbdh" jdbcType="VARCHAR" property="clsbdh" />
+    <result column="clpp1" jdbcType="VARCHAR" property="clpp1" />
+    <result column="cllx" jdbcType="VARCHAR" property="cllx" />
+    <result column="sjhm" jdbcType="VARCHAR" property="sjhm" />
+    <result column="zzxxdz" jdbcType="VARCHAR" property="zzxxdz" />
+    <result column="csys" jdbcType="VARCHAR" property="csys" />
+    <result column="clxh" jdbcType="VARCHAR" property="clxh" />
+    <result column="isvehicle" jdbcType="VARCHAR" property="isvehicle" />
+    <result column="flaglist" jdbcType="VARCHAR" property="flaglist" />
+    <result column="isclonecar" jdbcType="VARCHAR" property="isclonecar" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    hphm, hpzl, syr, sfzmhm, clsbdh, clpp1, cllx, sjhm, zzxxdz, csys, clxh, isvehicle, 
+    flaglist, isclonecar
+  </sql>
+
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_vehicle
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_vehicle
+    where hphm = #{hphm,jdbcType=VARCHAR}
+      and hpzl = #{hpzl,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from t_vehicle
+    where hphm = #{hphm,jdbcType=VARCHAR}
+      and hpzl = #{hpzl,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.vueServer.code.pojo.T_VEHICLE">
+    insert into t_vehicle (hphm, hpzl, syr, 
+      sfzmhm, clsbdh, clpp1, 
+      cllx, sjhm, zzxxdz, 
+      csys, clxh, isvehicle, 
+      flaglist, isclonecar)
+    values (#{hphm,jdbcType=VARCHAR}, #{hpzl,jdbcType=VARCHAR}, #{syr,jdbcType=VARCHAR}, 
+      #{sfzmhm,jdbcType=VARCHAR}, #{clsbdh,jdbcType=VARCHAR}, #{clpp1,jdbcType=VARCHAR}, 
+      #{cllx,jdbcType=VARCHAR}, #{sjhm,jdbcType=VARCHAR}, #{zzxxdz,jdbcType=VARCHAR}, 
+      #{csys,jdbcType=VARCHAR}, #{clxh,jdbcType=VARCHAR}, #{isvehicle,jdbcType=VARCHAR}, 
+      #{flaglist,jdbcType=VARCHAR}, #{isclonecar,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.vueServer.code.pojo.T_VEHICLE">
+    insert into t_vehicle
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hphm != null">
+        hphm,
+      </if>
+      <if test="hpzl != null">
+        hpzl,
+      </if>
+      <if test="syr != null">
+        syr,
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm,
+      </if>
+      <if test="clsbdh != null">
+        clsbdh,
+      </if>
+      <if test="clpp1 != null">
+        clpp1,
+      </if>
+      <if test="cllx != null">
+        cllx,
+      </if>
+      <if test="sjhm != null">
+        sjhm,
+      </if>
+      <if test="zzxxdz != null">
+        zzxxdz,
+      </if>
+      <if test="csys != null">
+        csys,
+      </if>
+      <if test="clxh != null">
+        clxh,
+      </if>
+      <if test="isvehicle != null">
+        isvehicle,
+      </if>
+      <if test="flaglist != null">
+        flaglist,
+      </if>
+      <if test="isclonecar != null">
+        isclonecar,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hphm != null">
+        #{hphm,jdbcType=VARCHAR},
+      </if>
+      <if test="hpzl != null">
+        #{hpzl,jdbcType=VARCHAR},
+      </if>
+      <if test="syr != null">
+        #{syr,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="clsbdh != null">
+        #{clsbdh,jdbcType=VARCHAR},
+      </if>
+      <if test="clpp1 != null">
+        #{clpp1,jdbcType=VARCHAR},
+      </if>
+      <if test="cllx != null">
+        #{cllx,jdbcType=VARCHAR},
+      </if>
+      <if test="sjhm != null">
+        #{sjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzxxdz != null">
+        #{zzxxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="csys != null">
+        #{csys,jdbcType=VARCHAR},
+      </if>
+      <if test="clxh != null">
+        #{clxh,jdbcType=VARCHAR},
+      </if>
+      <if test="isvehicle != null">
+        #{isvehicle,jdbcType=VARCHAR},
+      </if>
+      <if test="flaglist != null">
+        #{flaglist,jdbcType=VARCHAR},
+      </if>
+      <if test="isclonecar != null">
+        #{isclonecar,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.vueServer.code.pojo.T_VEHICLE">
+    update t_vehicle
+    <set>
+      <if test="syr != null">
+        syr = #{syr,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzmhm != null">
+        sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      </if>
+      <if test="clsbdh != null">
+        clsbdh = #{clsbdh,jdbcType=VARCHAR},
+      </if>
+      <if test="clpp1 != null">
+        clpp1 = #{clpp1,jdbcType=VARCHAR},
+      </if>
+      <if test="cllx != null">
+        cllx = #{cllx,jdbcType=VARCHAR},
+      </if>
+      <if test="sjhm != null">
+        sjhm = #{sjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzxxdz != null">
+        zzxxdz = #{zzxxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="csys != null">
+        csys = #{csys,jdbcType=VARCHAR},
+      </if>
+      <if test="clxh != null">
+        clxh = #{clxh,jdbcType=VARCHAR},
+      </if>
+      <if test="isvehicle != null">
+        isvehicle = #{isvehicle,jdbcType=VARCHAR},
+      </if>
+      <if test="flaglist != null">
+        flaglist = #{flaglist,jdbcType=VARCHAR},
+      </if>
+      <if test="isclonecar != null">
+        isclonecar = #{isclonecar,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where hphm = #{hphm,jdbcType=VARCHAR}
+      and hpzl = #{hpzl,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vueServer.code.pojo.T_VEHICLE">
+    update t_vehicle
+    set syr = #{syr,jdbcType=VARCHAR},
+      sfzmhm = #{sfzmhm,jdbcType=VARCHAR},
+      clsbdh = #{clsbdh,jdbcType=VARCHAR},
+      clpp1 = #{clpp1,jdbcType=VARCHAR},
+      cllx = #{cllx,jdbcType=VARCHAR},
+      sjhm = #{sjhm,jdbcType=VARCHAR},
+      zzxxdz = #{zzxxdz,jdbcType=VARCHAR},
+      csys = #{csys,jdbcType=VARCHAR},
+      clxh = #{clxh,jdbcType=VARCHAR},
+      isvehicle = #{isvehicle,jdbcType=VARCHAR},
+      flaglist = #{flaglist,jdbcType=VARCHAR},
+      isclonecar = #{isclonecar,jdbcType=VARCHAR}
+    where hphm = #{hphm,jdbcType=VARCHAR}
+      and hpzl = #{hpzl,jdbcType=VARCHAR}
+  </update>
+</mapper>

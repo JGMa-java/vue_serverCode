@@ -2,6 +2,7 @@ package com.vueServer.code.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,4 +17,15 @@ public class ViewController {
         model.addAttribute("name", name);
         return "index";
     }
+
+    @GetMapping("/vehicleindex")
+    public  String vehicleView(){
+        return "vehicle";
+    }
+
+    @GetMapping("/easyuiindex")
+    public  String easyuiView(){
+        return "easyui";
+    }
+
 }

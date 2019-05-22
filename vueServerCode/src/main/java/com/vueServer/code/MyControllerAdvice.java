@@ -23,7 +23,7 @@ public class MyControllerAdvice {
     public Map<String,Object> exceptionHandler(Exception ex){
         Map<String,Object> map  = new HashMap<String,Object>();
         map.put("code",1001);
-        map.put("mag",ex.getMessage());
+        map.put("msg",ex.getMessage());
         //发生异常进行日志记录，写入数据库或者其他处理
         log.error(ex.getMessage(),ex);
         return map;

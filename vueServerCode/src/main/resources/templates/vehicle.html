@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>车辆信息</title>
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!--easyui-->
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/demo/demo.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+
+</head>
+<script type="text/javascript">
+    $(function(){
+        $('#ff').form({
+            success:function(data){
+                $.messager.alert('Info', data, 'info');
+            }
+        });
+    });
+</script>
+<body>
+<h2>Ajax Form</h2>
+<div class="demo-info" style="margin-bottom:10px">
+    <div class="demo-tip icon-tip">&nbsp;</div>
+    <div>添加vehicle信息0</div>
+</div>
+
+<div class="easyui-panel" title="Ajax Form" style="width:500px;padding:10px;">
+    <form class="form-horizontal" id="ff" action="/vehicle/addVehicle" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>车牌号码</td>
+                <td><input name="hphm" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>号牌种类</td>
+                <td><input name="hpzl" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>所有人</td>
+                <td><input name="syr" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>身份证号</td>
+                <td><input name="sfzmhm" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>车辆识别代号</td>
+                <td><input name="clsbdh" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>车辆品牌</td>
+                <td><input name="clpp1" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>车辆类型</td>
+                <td><input name="cllx" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>手机号码</td>
+                <td><input name="sjhm" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>地址</td>
+                <td><input name="zzxxdz" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>车辆颜色</td>
+                <td><input name="csys" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>车身型号</td>
+                <td><input name="clxh" class="f1 easyui-textbox"></input></td>
+            </tr>
+            <tr>
+                <td>是否被盗</td>
+                <td><input name="isvehicle" class="f1 easyui-textbox"></input></td>
+            </tr>
+        </table>
+        <div class="form-group">
+            <label for="isvehicle" class="col-sm-2 control-label">isvehicle</label>
+            <div class="col-sm-10">
+                <!--<input type="text" class="form-control" id="isvehicle" >-->
+                <select class="form-control" id="isvehicle" name="isvehicle">
+                    <option value="1">是</option>
+                    <option value="0">否</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="flaglist" class="col-sm-2 control-label">flaglist</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="flaglist" name="flaglist">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="isclonecar" class="col-sm-2 control-label">isclonecar</label>
+            <div class="col-sm-10">
+                <!--<input type="text" class="form-control" id="isclonecar" >-->
+                <select class="form-control" id="isclonecar" name="isclonecar">
+                    <option value="1">是</option>
+                    <option value="0">否</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">添加</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
