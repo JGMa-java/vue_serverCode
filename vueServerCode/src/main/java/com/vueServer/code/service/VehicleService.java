@@ -12,4 +12,6 @@ public interface VehicleService {
     List<T_VEHICLE> findAll();
 
     void addVehicle(T_VEHICLE param);
+
+    T_VEHICLE findById(T_VEHICLE param);
 }

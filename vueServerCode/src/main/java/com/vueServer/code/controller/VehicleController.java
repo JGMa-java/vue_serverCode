@@ -16,14 +16,15 @@ public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
-    @PostMapping("/findAllVehicle")
+    @GetMapping("/findAllVehicle")
     public List<T_VEHICLE> findAll(String ss){
         return vehicleService.findAll();
     }
 
     @PostMapping(value = "/addVehicle")
-    public void addVehicle(T_VEHICLE param){
+    public T_VEHICLE addVehicle(T_VEHICLE param){
         vehicleService.addVehicle(param);
+        return vehicleService.findById(param);
     }
 
 }
