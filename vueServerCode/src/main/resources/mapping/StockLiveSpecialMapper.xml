@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vueServer.code.dao.StockLiveSpecialMapper">
+  <resultMap id="BaseResultMap" type="com.vueServer.code.pojo.StockLiveSpecial">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="COLOR" jdbcType="VARCHAR" property="color" />
+    <result column="ARTICLETYPENAME1" jdbcType="VARCHAR" property="articletypename1" />
+    <result column="ARTICLETYPENAME2" jdbcType="VARCHAR" property="articletypename2" />
+    <result column="TYPE" jdbcType="DECIMAL" property="type" />
+    <result column="CONCEPTCODE" jdbcType="DECIMAL" property="conceptcode" />
+    <result column="HOT" jdbcType="DECIMAL" property="hot" />
+    <result column="HOTSORT" jdbcType="DECIMAL" property="hotsort" />
+    <result column="MODIFYDATE" jdbcType="TIMESTAMP" property="modifydate" />
+  </resultMap>
+
+  <select id="selectAll" resultType="com.vueServer.code.pojo.StockLiveSpecial">
+        SELECT
+    t.ID,
+    t.TITLE,
+    concat( 'https://xlz.cfzqtest.com/xlzmanager/picture/', t.headpic ) headpic,
+    t.REMARK,
+    t.CREATETIME,
+    t.STATUS,
+    t.COLOR,
+    t.TYPE,
+    t.CONCEPTCODE,
+    t.HOT,
+    t.HOTSORT,
+    t.MODIFYDATE
+    FROM
+    stock_live_special t limit 20
+  </select>
+</mapper>
